@@ -173,7 +173,9 @@ lightcsr/
 ├── configs/                  # Per-dataset hyperparameter configs
 ├── data/                     # Preprocessed data (gitignored; see download script)
 ├── results/                  # Output directory
+├── docs/                
 └── requirements.txt
+
 ```
 
 ---
