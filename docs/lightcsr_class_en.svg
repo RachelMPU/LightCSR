@@ -1,0 +1,232 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="940" viewBox="0 0 1280 940" font-family="'Inter','Helvetica Neue','Segoe UI',Arial,sans-serif">
+  <defs>
+    <marker id="clArrowOpen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#1A2230" stroke-width="1.5"/>
+    </marker>
+    <marker id="clArrowBlue" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#1E4FA8" stroke-width="1.5"/>
+    </marker>
+    <marker id="clArrowOrange" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#C97A1A" stroke-width="1.5"/>
+    </marker>
+    <marker id="clDiamondFilled" viewBox="0 0 14 14" refX="12" refY="7" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M 1 7 L 7 1 L 13 7 L 7 13 Z" fill="#1A2230" stroke="#1A2230" stroke-width="1"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="940" fill="#FFFFFF"/>
+
+  <!-- Title band -->
+  <rect x="0" y="0" width="1280" height="56" fill="#0E3F8C"/>
+  <text x="40" y="26" fill="#FFFFFF" font-size="20" font-weight="bold">LightCSR - Class Diagram</text>
+  <text x="40" y="46" fill="#9FC3F0" font-size="13">8 classes | 2 DTO decoupling points | RetrievalModule and LightCSRRanker communicate only via data objects</text>
+
+  <!-- ============ Tier labels (left margin, clear of every class box) ============ -->
+  <text x="40" y="164" fill="#0E3F8C" font-size="11" font-weight="bold">Controller</text>
+  <text x="40" y="356" fill="#0E3F8C" font-size="11" font-weight="bold">Detection</text>
+  <text x="40" y="372" fill="#0E3F8C" font-size="11" font-weight="bold">Ranking</text>
+  <text x="40" y="556" fill="#0E3F8C" font-size="11" font-weight="bold">Build</text>
+  <text x="40" y="572" fill="#0E3F8C" font-size="11" font-weight="bold">Storage</text>
+  <text x="1140" y="548" fill="#0E3F8C" font-size="11" font-weight="bold" text-anchor="end">DTO layer</text>
+
+  <!-- ============ Row 1: APIGateway ============ -->
+  <g>
+    <rect x="500" y="90" width="280" height="140" fill="#FFFFFF" stroke="#1E4FA8" stroke-width="1.5" rx="4"/>
+    <rect x="500" y="90" width="280" height="32" fill="#1E4FA8" rx="4"/>
+    <rect x="500" y="106" width="280" height="16" fill="#1E4FA8"/>
+    <text x="640" y="112" fill="#FFFFFF" font-size="15" font-weight="bold" text-anchor="middle">APIGateway</text>
+    <line x1="500" y1="122" x2="780" y2="122" stroke="#FFFFFF" stroke-width="0.5"/>
+    <text x="510" y="146" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+router: Router</text>
+    <text x="510" y="164" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+auth: AuthService</text>
+    <text x="510" y="182" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+rate_limiter: TokenBucket</text>
+    <line x1="500" y1="190" x2="780" y2="190" stroke="#D6DCE5" stroke-width="1"/>
+    <text x="510" y="206" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+handle(req): Response</text>
+    <text x="510" y="222" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+validate_token(t): bool</text>
+  </g>
+
+  <!-- ============ Row 2: ColdStartDetector ============ -->
+  <g>
+    <rect x="120" y="290" width="280" height="140" fill="#FFFFFF" stroke="#1E4FA8" stroke-width="1.5" rx="4"/>
+    <rect x="120" y="290" width="280" height="32" fill="#1E4FA8" rx="4"/>
+    <rect x="120" y="306" width="280" height="16" fill="#1E4FA8"/>
+    <text x="260" y="312" fill="#FFFFFF" font-size="15" font-weight="bold" text-anchor="middle">ColdStartDetector</text>
+    <line x1="120" y1="322" x2="400" y2="322" stroke="#FFFFFF" stroke-width="0.5"/>
+    <text x="130" y="346" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+threshold: int = 5</text>
+    <text x="130" y="364" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+strategy: str</text>
+    <text x="130" y="382" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+history_window: int = 30</text>
+    <line x1="120" y1="390" x2="400" y2="390" stroke="#D6DCE5" stroke-width="1"/>
+    <text x="130" y="406" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+is_cold(user): bool</text>
+    <text x="130" y="422" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+decide(user): Strategy</text>
+  </g>
+
+  <!-- ============ Row 2: RetrievalModule ============ -->
+  <g>
+    <rect x="500" y="290" width="280" height="140" fill="#FFFFFF" stroke="#1E4FA8" stroke-width="1.5" rx="4"/>
+    <rect x="500" y="290" width="280" height="32" fill="#1E4FA8" rx="4"/>
+    <rect x="500" y="306" width="280" height="16" fill="#1E4FA8"/>
+    <text x="640" y="312" fill="#FFFFFF" font-size="15" font-weight="bold" text-anchor="middle">RetrievalModule</text>
+    <line x1="500" y1="322" x2="780" y2="322" stroke="#FFFFFF" stroke-width="0.5"/>
+    <text x="510" y="346" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+index_l1: FAISS</text>
+    <text x="510" y="364" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+index_l2: KGIndex</text>
+    <text x="510" y="382" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+topk: int = 20</text>
+    <line x1="500" y1="390" x2="780" y2="390" stroke="#D6DCE5" stroke-width="1"/>
+    <text x="510" y="406" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+retrieve(q, k): List</text>
+    <text x="510" y="422" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+expand(cands, k): List</text>
+  </g>
+
+  <!-- ============ Row 2: LightCSRRanker ============ -->
+  <g>
+    <rect x="880" y="290" width="280" height="140" fill="#FFFFFF" stroke="#1E4FA8" stroke-width="1.5" rx="4"/>
+    <rect x="880" y="290" width="280" height="32" fill="#1E4FA8" rx="4"/>
+    <rect x="880" y="306" width="280" height="16" fill="#1E4FA8"/>
+    <text x="1020" y="312" fill="#FFFFFF" font-size="15" font-weight="bold" text-anchor="middle">LightCSRRanker</text>
+    <line x1="880" y1="322" x2="1160" y2="322" stroke="#FFFFFF" stroke-width="0.5"/>
+    <text x="890" y="346" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+model: SLM (1B-3B)</text>
+    <text x="890" y="364" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+quant: str = "int4"</text>
+    <text x="890" y="382" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+max_k: int = 50</text>
+    <line x1="880" y1="390" x2="1160" y2="390" stroke="#D6DCE5" stroke-width="1"/>
+    <text x="890" y="406" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+rank(prompt, cands): List</text>
+    <text x="890" y="422" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+explain(cand): str</text>
+  </g>
+
+  <!-- ============ Row 3: ProfileBuilder ============ -->
+  <g>
+    <rect x="120" y="490" width="280" height="140" fill="#FFFFFF" stroke="#1E4FA8" stroke-width="1.5" rx="4"/>
+    <rect x="120" y="490" width="280" height="32" fill="#1E4FA8" rx="4"/>
+    <rect x="120" y="506" width="280" height="16" fill="#1E4FA8"/>
+    <text x="260" y="512" fill="#FFFFFF" font-size="15" font-weight="bold" text-anchor="middle">ProfileBuilder</text>
+    <line x1="120" y1="522" x2="400" y2="522" stroke="#FFFFFF" stroke-width="0.5"/>
+    <text x="130" y="546" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+schema: dict</text>
+    <text x="130" y="564" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+kg_store: KGStore</text>
+    <text x="130" y="582" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+nl_model: T5</text>
+    <line x1="120" y1="590" x2="400" y2="590" stroke="#D6DCE5" stroke-width="1"/>
+    <text x="130" y="606" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+build(user_id): Profile</text>
+    <text x="130" y="622" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+to_nl(profile): str</text>
+  </g>
+
+  <!-- ============ Row 3: KnowledgeGraphStore ============ -->
+  <g>
+    <rect x="500" y="490" width="280" height="140" fill="#FFFFFF" stroke="#1E4FA8" stroke-width="1.5" rx="4"/>
+    <rect x="500" y="490" width="280" height="32" fill="#1E4FA8" rx="4"/>
+    <rect x="500" y="506" width="280" height="16" fill="#1E4FA8"/>
+    <text x="640" y="512" fill="#FFFFFF" font-size="15" font-weight="bold" text-anchor="middle">KnowledgeGraphStore</text>
+    <line x1="500" y1="522" x2="780" y2="522" stroke="#FFFFFF" stroke-width="0.5"/>
+    <text x="510" y="546" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+graph: nx.Graph</text>
+    <text x="510" y="564" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+embeddings: Tensor</text>
+    <text x="510" y="582" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+hop_limit: int = 2</text>
+    <line x1="500" y1="590" x2="780" y2="590" stroke="#D6DCE5" stroke-width="1"/>
+    <text x="510" y="606" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+query(entity, hops): Vec</text>
+    <text x="510" y="622" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+traverse(seed, k): Path</text>
+  </g>
+
+  <!-- ============ DTO: Candidate ============ -->
+  <g>
+    <rect x="900" y="560" width="240" height="120" fill="#FFFFFF" stroke="#1E4FA8" stroke-width="1.5" stroke-dasharray="4 3" rx="4"/>
+    <rect x="900" y="560" width="240" height="32" fill="#1E4FA8" rx="4"/>
+    <rect x="900" y="576" width="240" height="16" fill="#1E4FA8"/>
+    <text x="1020" y="582" fill="#FFFFFF" font-size="14" font-weight="bold" text-anchor="middle">Candidate «DTO»</text>
+    <line x1="900" y1="592" x2="1140" y2="592" stroke="#FFFFFF" stroke-width="0.5"/>
+    <text x="910" y="616" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+item_id: str</text>
+    <text x="910" y="636" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+score: float</text>
+    <text x="910" y="656" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+evidence: EvidenceBundle</text>
+  </g>
+
+  <!-- ============ DTO: EvidenceBundle ============ -->
+  <g>
+    <rect x="900" y="740" width="240" height="120" fill="#FFFFFF" stroke="#1E4FA8" stroke-width="1.5" stroke-dasharray="4 3" rx="4"/>
+    <rect x="900" y="740" width="240" height="32" fill="#1E4FA8" rx="4"/>
+    <rect x="900" y="756" width="240" height="16" fill="#1E4FA8"/>
+    <text x="1020" y="762" fill="#FFFFFF" font-size="14" font-weight="bold" text-anchor="middle">EvidenceBundle «DTO»</text>
+    <line x1="900" y1="772" x2="1140" y2="772" stroke="#FFFFFF" stroke-width="0.5"/>
+    <text x="910" y="796" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+paths: List[Path]</text>
+    <text x="910" y="816" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+rationale: str</text>
+    <text x="910" y="836" fill="#1A2230" font-size="12" font-family="'Menlo','Consolas',monospace">+confidence: float</text>
+  </g>
+
+  <!-- ============ Relationships ============ -->
+  <!-- 1. APIGateway -> ColdStartDetector : lane y=260, label ABOVE the lane -->
+  <g stroke="#1A2230" stroke-width="1.4" fill="none">
+    <path d="M 580 230 L 580 260 L 260 260 L 260 290" marker-end="url(#clArrowOpen)"/>
+  </g>
+  <text x="420" y="250" fill="#1A2230" font-size="11" font-style="italic" text-anchor="middle">delegates</text>
+
+  <!-- 2. APIGateway -> RetrievalModule : straight vertical, label to the RIGHT -->
+  <g stroke="#1A2230" stroke-width="1.4" fill="none">
+    <line x1="640" y1="230" x2="640" y2="290" marker-end="url(#clArrowOpen)"/>
+  </g>
+  <text x="652" y="274" fill="#1A2230" font-size="11" font-style="italic">delegates</text>
+
+  <!-- 3. APIGateway -> LightCSRRanker : lane y=260 (disjoint x from rel.1) -->
+  <g stroke="#1A2230" stroke-width="1.4" fill="none">
+    <path d="M 700 230 L 700 260 L 1020 260 L 1020 290" marker-end="url(#clArrowOpen)"/>
+  </g>
+  <text x="860" y="250" fill="#1A2230" font-size="11" font-style="italic" text-anchor="middle">delegates</text>
+
+  <!-- 4. ColdStartDetector -> RetrievalModule -->
+  <g stroke="#1A2230" stroke-width="1.4" fill="none">
+    <line x1="400" y1="360" x2="500" y2="360" marker-end="url(#clArrowOpen)"/>
+  </g>
+  <text x="412" y="352" fill="#1A2230" font-size="11" font-style="italic">calls</text>
+
+  <!-- 5. RetrievalModule -> KnowledgeGraphStore (composition) -->
+  <g stroke="#1A2230" stroke-width="1.4" fill="none">
+    <line x1="640" y1="430" x2="640" y2="490" marker-start="url(#clDiamondFilled)"/>
+  </g>
+  <text x="630" y="466" fill="#1A2230" font-size="11" font-style="italic" text-anchor="end">stores</text>
+
+  <!-- 6. ProfileBuilder -> KnowledgeGraphStore -->
+  <g stroke="#1A2230" stroke-width="1.4" fill="none">
+    <line x1="400" y1="560" x2="500" y2="560" marker-end="url(#clArrowOpen)"/>
+  </g>
+  <text x="412" y="552" fill="#1A2230" font-size="11" font-style="italic">writes</text>
+
+  <!-- 7. RetrievalModule -> Candidate (creates) : lane y=460 spans 760..960, drop at 960 -->
+  <g stroke="#1E4FA8" stroke-width="1.4" fill="none">
+    <path d="M 760 430 L 760 460 L 960 460 L 960 560" marker-end="url(#clArrowBlue)"/>
+  </g>
+  <text x="782" y="452" fill="#1E4FA8" font-size="11" font-style="italic">creates</text>
+  <text x="952" y="552" fill="#1E4FA8" font-size="10" text-anchor="end">1</text>
+
+  <!-- 8. RetrievalModule -> EvidenceBundle (creates) : lane y=480 spans 660..856, drop at 856 -->
+  <g stroke="#1E4FA8" stroke-width="1.4" fill="none">
+    <path d="M 660 430 L 660 480 L 856 480 L 856 800 L 900 800" marker-end="url(#clArrowBlue)"/>
+  </g>
+  <text x="682" y="472" fill="#1E4FA8" font-size="11" font-style="italic">creates</text>
+  <text x="890" y="792" fill="#1E4FA8" font-size="10" text-anchor="end">1</text>
+
+  <!-- 9. LightCSRRanker -> Candidate (consumes) : straight vertical at x=1000 -->
+  <g stroke="#C97A1A" stroke-width="1.4" fill="none">
+    <line x1="1000" y1="430" x2="1000" y2="560" marker-end="url(#clArrowOrange)"/>
+  </g>
+  <text x="1012" y="500" fill="#C97A1A" font-size="11" font-style="italic">consumes</text>
+  <text x="988" y="552" fill="#C97A1A" font-size="10" text-anchor="end">*</text>
+
+  <!-- 10. LightCSRRanker -> EvidenceBundle (consumes) : out via right channel x=1200 -->
+  <g stroke="#C97A1A" stroke-width="1.4" fill="none">
+    <path d="M 1160 400 L 1200 400 L 1200 800 L 1142 800" marker-end="url(#clArrowOrange)"/>
+  </g>
+  <text x="1190" y="700" fill="#C97A1A" font-size="11" font-style="italic" text-anchor="end">consumes</text>
+  <text x="1132" y="792" fill="#C97A1A" font-size="10" text-anchor="end">*</text>
+
+  <!-- ============ Legend ============ -->
+  <g transform="translate(40, 890)">
+    <rect x="0" y="0" width="1200" height="36" fill="#F7F9FC" stroke="#D6DCE5" stroke-width="1" rx="4"/>
+
+    <line x1="16" y1="18" x2="46" y2="18" stroke="#1A2230" stroke-width="1.4" marker-end="url(#clArrowOpen)"/>
+    <text x="54" y="22" fill="#1A2230" font-size="12">dependency</text>
+
+    <line x1="148" y1="18" x2="178" y2="18" stroke="#1A2230" stroke-width="1.4" marker-start="url(#clDiamondFilled)"/>
+    <text x="186" y="22" fill="#1A2230" font-size="12">composition</text>
+
+    <line x1="280" y1="18" x2="310" y2="18" stroke="#1E4FA8" stroke-width="1.4" marker-end="url(#clArrowBlue)"/>
+    <text x="318" y="22" fill="#1A2230" font-size="12">creates (DTO)</text>
+
+    <line x1="412" y1="18" x2="442" y2="18" stroke="#C97A1A" stroke-width="1.4" marker-end="url(#clArrowOrange)"/>
+    <text x="450" y="22" fill="#1A2230" font-size="12">consumes (DTO)</text>
+
+    <rect x="560" y="10" width="18" height="16" fill="#FFFFFF" stroke="#1E4FA8" stroke-width="1.5" stroke-dasharray="4 3" rx="2"/>
+    <text x="586" y="22" fill="#1A2230" font-size="12">DTO (data object)</text>
+
+    <text x="1184" y="22" fill="#8B97A8" font-size="12" text-anchor="end">LightCSR - Class - v1</text>
+  </g>
+</svg>

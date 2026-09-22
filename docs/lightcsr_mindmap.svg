@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 424" width="680" height="424" font-family="-apple-system, Helvetica Neue, Arial, sans-serif">
+<title>LightCSR project mind map</title>
+<desc>Mind map of the LightCSR final year project: problem, framework and evaluation branches on the right; lightweight techniques, baselines, goals and risks on the left.</desc>
+<rect x="0" y="0" width="680" height="424" fill="#FFFFFF"/>
+<path d="M425 234 C432 234 432 76 440 76" fill="none" stroke="#378ADD" stroke-width="1.5"/>
+<path d="M425 234 C432 234 432 204 440 204" fill="none" stroke="#378ADD" stroke-width="1.5"/>
+<path d="M425 234 C432 234 432 332 440 332" fill="none" stroke="#378ADD" stroke-width="1.5"/>
+<path d="M255 234 C248 234 248 76 240 76" fill="none" stroke="#7F77DD" stroke-width="1.5"/>
+<path d="M255 234 C248 234 248 204 240 204" fill="none" stroke="#7F77DD" stroke-width="1.5"/>
+<path d="M255 234 C248 234 248 332 240 332" fill="none" stroke="#7F77DD" stroke-width="1.5"/>
+<rect x="255" y="198" width="170" height="72" rx="14" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+<text x="340" y="221" text-anchor="middle" font-size="15" font-weight="500" fill="#085041">LightCSR</text>
+<text x="340" y="240" text-anchor="middle" font-size="11" fill="#0F6E56">lightweight LLM + RAG</text>
+<text x="340" y="256" text-anchor="middle" font-size="11" fill="#0F6E56">cold-start recommendation</text>
+<rect x="440" y="60" width="150" height="32" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="515" y="76" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="500" fill="#0C447C">Problem</text>
+<rect x="440" y="188" width="150" height="32" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="515" y="204" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="500" fill="#0C447C">Framework</text>
+<rect x="440" y="316" width="150" height="32" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="515" y="332" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="500" fill="#0C447C">Evaluation</text>
+<rect x="90" y="60" width="150" height="32" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="165" y="76" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="500" fill="#3C3489">Lightweight</text>
+<rect x="90" y="188" width="150" height="32" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="165" y="204" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="500" fill="#3C3489">Baselines</text>
+<rect x="90" y="316" width="150" height="32" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="165" y="332" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="500" fill="#3C3489">Goals &amp; risks</text>
+<path d="M468 92 L468 144" fill="none" stroke="#B5D4F4" stroke-width="0.5"/>
+<circle cx="468" cy="104" r="3" fill="#378ADD"/>
+<text x="478" y="108" font-size="11" fill="#444441">Cold-start users and items</text>
+<circle cx="468" cy="124" r="3" fill="#378ADD"/>
+<text x="478" y="128" font-size="11" fill="#444441">Sparse interaction data</text>
+<circle cx="468" cy="144" r="3" fill="#378ADD"/>
+<text x="478" y="148" font-size="11" fill="#444441">LLM cost and latency limits</text>
+<path d="M468 220 L468 272" fill="none" stroke="#B5D4F4" stroke-width="0.5"/>
+<circle cx="468" cy="232" r="3" fill="#378ADD"/>
+<text x="478" y="236" font-size="11" fill="#444441">Profile builder + KG</text>
+<circle cx="468" cy="252" r="3" fill="#378ADD"/>
+<text x="478" y="256" font-size="11" fill="#444441">Dual-level retrieval</text>
+<circle cx="468" cy="272" r="3" fill="#378ADD"/>
+<text x="478" y="276" font-size="11" fill="#444441">SLM ranker (1B–3B params)</text>
+<path d="M468 348 L468 400" fill="none" stroke="#B5D4F4" stroke-width="0.5"/>
+<circle cx="468" cy="360" r="3" fill="#378ADD"/>
+<text x="478" y="364" font-size="11" fill="#444441">Amazon, Yelp, MovieLens-1M</text>
+<circle cx="468" cy="380" r="3" fill="#378ADD"/>
+<text x="478" y="384" font-size="11" fill="#444441">Recall@10 and NDCG@10</text>
+<circle cx="468" cy="400" r="3" fill="#378ADD"/>
+<text x="478" y="404" font-size="11" fill="#444441">Cost–quality trade-off</text>
+<path d="M212 92 L212 144" fill="none" stroke="#CECBF6" stroke-width="0.5"/>
+<circle cx="212" cy="104" r="3" fill="#7F77DD"/>
+<text x="202" y="108" text-anchor="end" font-size="11" fill="#444441">Distillation from GPT-4o</text>
+<circle cx="212" cy="124" r="3" fill="#7F77DD"/>
+<text x="202" y="128" text-anchor="end" font-size="11" fill="#444441">INT4 quantization</text>
+<circle cx="212" cy="144" r="3" fill="#7F77DD"/>
+<text x="202" y="148" text-anchor="end" font-size="11" fill="#444441">Keyword-driven prompts</text>
+<path d="M212 220 L212 272" fill="none" stroke="#CECBF6" stroke-width="0.5"/>
+<circle cx="212" cy="232" r="3" fill="#7F77DD"/>
+<text x="202" y="236" text-anchor="end" font-size="11" fill="#444441">ColdRAG (GPT-4o based)</text>
+<circle cx="212" cy="252" r="3" fill="#7F77DD"/>
+<text x="202" y="256" text-anchor="end" font-size="11" fill="#444441">KALM4Rec</text>
+<circle cx="212" cy="272" r="3" fill="#7F77DD"/>
+<text x="202" y="276" text-anchor="end" font-size="11" fill="#444441">DropoutNet, MeLU, LightGCN</text>
+<path d="M212 348 L212 400" fill="none" stroke="#CECBF6" stroke-width="0.5"/>
+<circle cx="212" cy="360" r="3" fill="#7F77DD"/>
+<text x="202" y="364" text-anchor="end" font-size="11" fill="#444441">Quality ≥ 90% of GPT-4o</text>
+<circle cx="212" cy="380" r="3" fill="#7F77DD"/>
+<text x="202" y="384" text-anchor="end" font-size="11" fill="#444441">About 0.3% cost, &lt;300 ms</text>
+<circle cx="212" cy="400" r="3" fill="#7F77DD"/>
+<text x="202" y="404" text-anchor="end" font-size="11" fill="#444441">Risks: SLM limits, KG noise</text>
+</svg>

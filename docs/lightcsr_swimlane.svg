@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 596" width="680" height="596" font-family="-apple-system, Helvetica Neue, Arial, sans-serif">
+<title>LightCSR cold-start recommendation swim lane diagram</title>
+<desc>Swim lane process for handling a cold-start recommendation request across four lanes: user and platform, cold-start detector, retrieval module, and SLM ranker.</desc>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+<rect x="0" y="0" width="680" height="596" fill="#FFFFFF"/>
+<text x="40" y="42" font-size="13" font-weight="500" fill="#2C2C2A">Handling a cold-start recommendation request</text>
+<rect x="40" y="56" width="150" height="30" fill="#B5D4F4" stroke="#85B7EB" stroke-width="0.5"/>
+<text x="115" y="71" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="500" fill="#0C447C">User / platform</text>
+<rect x="190" y="56" width="150" height="30" fill="#B5D4F4" stroke="#85B7EB" stroke-width="0.5"/>
+<text x="265" y="71" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="500" fill="#0C447C">Cold-start detector</text>
+<rect x="340" y="56" width="150" height="30" fill="#B5D4F4" stroke="#85B7EB" stroke-width="0.5"/>
+<text x="415" y="71" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="500" fill="#0C447C">Retrieval module</text>
+<rect x="490" y="56" width="150" height="30" fill="#B5D4F4" stroke="#85B7EB" stroke-width="0.5"/>
+<text x="565" y="71" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="500" fill="#0C447C">SLM ranker</text>
+<rect x="40" y="86" width="150" height="490" fill="#F6F6F3"/>
+<rect x="340" y="86" width="150" height="490" fill="#F6F6F3"/>
+<rect x="40" y="86" width="600" height="490" fill="none" stroke="#D3D1C7" stroke-width="0.5"/>
+<path d="M190 86 L190 576" stroke="#D3D1C7" stroke-width="0.5" fill="none"/>
+<path d="M340 86 L340 576" stroke="#D3D1C7" stroke-width="0.5" fill="none"/>
+<path d="M490 86 L490 576" stroke="#D3D1C7" stroke-width="0.5" fill="none"/>
+<rect x="50" y="100" width="130" height="44" rx="22" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="115" y="114" text-anchor="middle" font-size="11" fill="#0C447C">New user requests</text>
+<text x="115" y="130" text-anchor="middle" font-size="11" fill="#0C447C">top-K items</text>
+<polygon points="265,94 325,122 265,150 205,122" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+<text x="265" y="114" text-anchor="middle" font-size="11" fill="#633806">History</text>
+<text x="265" y="130" text-anchor="middle" font-size="11" fill="#633806">available?</text>
+<rect x="200" y="200" width="130" height="44" rx="8" fill="#F1EFE8" stroke="#888780" stroke-width="0.5"/>
+<text x="265" y="216" text-anchor="middle" font-size="11" fill="#444441">Standard CF model</text>
+<text x="265" y="232" text-anchor="middle" font-size="11" fill="#444441">serves top-K</text>
+<rect x="355" y="176" width="130" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="420" y="198" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#0C447C">Build keyword profile</text>
+<rect x="355" y="252" width="130" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="420" y="268" text-anchor="middle" font-size="11" fill="#0C447C">L1: entity vector</text>
+<text x="420" y="284" text-anchor="middle" font-size="11" fill="#0C447C">match (FAISS)</text>
+<rect x="355" y="328" width="130" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="420" y="344" text-anchor="middle" font-size="11" fill="#0C447C">L2: KG multi-hop</text>
+<text x="420" y="360" text-anchor="middle" font-size="11" fill="#0C447C">expansion</text>
+<rect x="498" y="328" width="130" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="563" y="344" text-anchor="middle" font-size="11" fill="#0C447C">Assemble evidence</text>
+<text x="563" y="360" text-anchor="middle" font-size="11" fill="#0C447C">prompt</text>
+<rect x="498" y="404" width="130" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="563" y="420" text-anchor="middle" font-size="11" fill="#0C447C">SLM (1B–3B) scores</text>
+<text x="563" y="436" text-anchor="middle" font-size="11" fill="#0C447C">candidates</text>
+<polygon points="563,480 623,508 563,536 503,508" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+<text x="563" y="500" text-anchor="middle" font-size="11" fill="#633806">In-domain &amp;</text>
+<text x="563" y="516" text-anchor="middle" font-size="11" fill="#633806">confident?</text>
+<rect x="50" y="480" width="135" height="56" rx="28" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="117" y="500" text-anchor="middle" font-size="11" fill="#0C447C">Receive top-K with</text>
+<text x="117" y="516" text-anchor="middle" font-size="11" fill="#0C447C">explanations</text>
+<path d="M180 122 L201 122" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M265 150 L265 196" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="273" y="176" font-size="11" fill="#5F5E5A">yes</text>
+<path d="M325 122 L420 122 L420 172" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="332" y="114" font-size="11" fill="#5F5E5A">no — cold-start</text>
+<path d="M420 220 L420 249" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M420 296 L420 325" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M485 350 L494 350" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M563 372 L563 400" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M563 448 L563 476" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M503 508 L182 508" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="497" y="500" text-anchor="end" font-size="11" fill="#5F5E5A">yes</text>
+<path d="M265 244 L265 460 L115 460 L115 476" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M563 536 L563 562 L420 562 L420 376" fill="none" stroke="#5F5E5A" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+<text x="492" y="554" text-anchor="middle" font-size="11" fill="#5F5E5A">no — expand retrieval K</text>
+</svg>

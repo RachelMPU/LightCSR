@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="900" viewBox="0 0 1280 900" font-family="'Inter','Helvetica Neue','Segoe UI',Arial,sans-serif">
+  <defs>
+    <marker id="sqArrowSync" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M 0 0 L 11 6 L 0 12 Z" fill="#1A2230"/>
+    </marker>
+    <marker id="sqArrowReturn" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#1A2230" stroke-width="1.5"/>
+    </marker>
+    <marker id="sqArrowBlue" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M 0 0 L 11 6 L 0 12 Z" fill="#1E4FA8"/>
+    </marker>
+    <marker id="sqArrowBlueReturn" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#1E4FA8" stroke-width="1.5"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="900" fill="#FFFFFF"/>
+
+  <!-- Title band -->
+  <rect x="0" y="0" width="1280" height="56" fill="#0E3F8C"/>
+  <text x="40" y="26" fill="#FFFFFF" font-size="20" font-weight="bold">LightCSR - Sequence Diagram</text>
+  <text x="40" y="46" fill="#9FC3F0" font-size="13">End-to-end cold-start recommendation flow | 6 lifelines | alt branch | loop retry</text>
+
+  <!-- ============ Lifeline headers ============ -->
+  <g>
+    <rect x="40" y="92" width="140" height="40" fill="#1E4FA8" rx="4"/>
+    <text x="110" y="118" fill="#FFFFFF" font-size="14" font-weight="bold" text-anchor="middle">Client</text>
+
+    <rect x="240" y="92" width="140" height="40" fill="#1E4FA8" rx="4"/>
+    <text x="310" y="118" fill="#FFFFFF" font-size="14" font-weight="bold" text-anchor="middle">API</text>
+
+    <rect x="440" y="92" width="140" height="40" fill="#1E4FA8" rx="4"/>
+    <text x="510" y="118" fill="#FFFFFF" font-size="14" font-weight="bold" text-anchor="middle">Detector</text>
+
+    <rect x="640" y="92" width="140" height="40" fill="#1E4FA8" rx="4"/>
+    <text x="710" y="118" fill="#FFFFFF" font-size="14" font-weight="bold" text-anchor="middle">Retrieval</text>
+
+    <rect x="840" y="92" width="140" height="40" fill="#1E4FA8" rx="4"/>
+    <text x="910" y="118" fill="#FFFFFF" font-size="14" font-weight="bold" text-anchor="middle">KGStore</text>
+
+    <rect x="1040" y="92" width="140" height="40" fill="#1E4FA8" rx="4"/>
+    <text x="1110" y="118" fill="#FFFFFF" font-size="14" font-weight="bold" text-anchor="middle">Ranker</text>
+  </g>
+
+  <!-- ============ Lifelines ============ -->
+  <g stroke="#8B97A8" stroke-width="1" stroke-dasharray="6 5" fill="none">
+    <line x1="110" y1="132" x2="110" y2="800"/>
+    <line x1="310" y1="132" x2="310" y2="800"/>
+    <line x1="510" y1="132" x2="510" y2="800"/>
+    <line x1="710" y1="132" x2="710" y2="800"/>
+    <line x1="910" y1="132" x2="910" y2="800"/>
+    <line x1="1110" y1="132" x2="1110" y2="800"/>
+  </g>
+
+  <!-- ============ alt frame (drawn before tags/activation so tags sit on top) ============ -->
+  <rect x="64" y="320" width="1116" height="480" fill="none" stroke="#1E4FA8" stroke-width="1" stroke-dasharray="6 4" rx="4"/>
+
+  <!-- ============ loop frame ============ -->
+  <rect x="300" y="660" width="640" height="90" fill="none" stroke="#1E4FA8" stroke-width="1" stroke-dasharray="6 4" rx="4"/>
+
+  <!-- ============ Activation boxes ============ -->
+  <g fill="#E8EFF8" stroke="#1E4FA8" stroke-width="1">
+    <rect x="106" y="180" width="8" height="600"/>
+    <rect x="306" y="180" width="8" height="600"/>
+    <rect x="506" y="230" width="8" height="50"/>
+    <rect x="706" y="366" width="8" height="360"/>
+    <rect x="906" y="416" width="8" height="50"/>
+    <rect x="1106" y="555" width="8" height="71"/>
+  </g>
+
+  <!-- ============ Frame tags (drawn on top; placed clear of every activation box) ============ -->
+  <g>
+    <rect x="64" y="320" width="26" height="20" fill="#1E4FA8"/>
+    <text x="77" y="335" fill="#FFFFFF" font-size="11" font-weight="bold" text-anchor="middle">alt</text>
+    <text x="124" y="335" fill="#1A2230" font-size="11" font-style="italic">[history &lt; 5] cold-start path</text>
+    <text x="124" y="353" fill="#1A2230" font-size="11" font-style="italic">[else] standard CF - omitted</text>
+  </g>
+  <g>
+    <rect x="320" y="655" width="30" height="20" fill="#1E4FA8"/>
+    <text x="335" y="670" fill="#FFFFFF" font-size="11" font-weight="bold" text-anchor="middle">loop</text>
+    <text x="362" y="670" fill="#1A2230" font-size="11" font-style="italic">[in-domain &lt; 0.8]</text>
+  </g>
+
+  <!-- ============ Messages (labels centered inside a lifeline-free window) ============ -->
+
+  <!-- 1. Client -> API -->
+  <line x1="110" y1="180" x2="310" y2="180" stroke="#1A2230" stroke-width="1.5" marker-end="url(#sqArrowSync)"/>
+  <text x="210" y="170" fill="#1A2230" font-size="11" font-family="'Menlo','Consolas',monospace" text-anchor="middle">POST /recommend</text>
+
+  <!-- 2. API -> Detector -->
+  <line x1="310" y1="230" x2="510" y2="230" stroke="#1A2230" stroke-width="1.5" marker-end="url(#sqArrowSync)"/>
+  <text x="410" y="220" fill="#1A2230" font-size="11" font-family="'Menlo','Consolas',monospace" text-anchor="middle">check_history(user)</text>
+
+  <!-- 3. Detector -> API (return) -->
+  <line x1="510" y1="280" x2="310" y2="280" stroke="#1A2230" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#sqArrowReturn)"/>
+  <text x="410" y="270" fill="#1A2230" font-size="11" font-family="'Menlo','Consolas',monospace" text-anchor="middle">is_cold_start = true</text>
+
+  <!-- 4. API -> Retrieval (label sits in the API|Detector window) -->
+  <line x1="310" y1="366" x2="710" y2="366" stroke="#1E4FA8" stroke-width="1.5" marker-end="url(#sqArrowBlue)"/>
+  <text x="410" y="356" fill="#1E4FA8" font-size="11" font-family="'Menlo','Consolas',monospace" text-anchor="middle">entity_kNN(profile, k=20)</text>
+
+  <!-- 5. Retrieval -> KGStore -->
+  <line x1="710" y1="416" x2="910" y2="416" stroke="#1E4FA8" stroke-width="1.5" marker-end="url(#sqArrowBlue)"/>
+  <text x="810" y="406" fill="#1E4FA8" font-size="11" font-family="'Menlo','Consolas',monospace" text-anchor="middle">query(entities, hops=2)</text>
+
+  <!-- 6. KGStore -> Retrieval (return) -->
+  <line x1="910" y1="466" x2="710" y2="466" stroke="#1E4FA8" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#sqArrowBlueReturn)"/>
+  <text x="810" y="456" fill="#1E4FA8" font-size="11" font-family="'Menlo','Consolas',monospace" text-anchor="middle">evidence vectors</text>
+
+  <!-- 7. Retrieval -> API (return) : two-line label in the API|Detector window -->
+  <line x1="710" y1="516" x2="310" y2="516" stroke="#1E4FA8" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#sqArrowBlueReturn)"/>
+  <text x="410" y="485" fill="#1E4FA8" font-size="11" font-family="'Menlo','Consolas',monospace" text-anchor="middle">candidates +</text>
+  <text x="410" y="499" fill="#1E4FA8" font-size="11" font-family="'Menlo','Consolas',monospace" text-anchor="middle">EvidenceBundle</text>
+
+  <!-- 8. API -> Ranker (label in the API|Detector window, clear of all far lifelines) -->
+  <line x1="310" y1="555" x2="1110" y2="555" stroke="#1A2230" stroke-width="1.5" marker-end="url(#sqArrowSync)"/>
+  <text x="410" y="545" fill="#1A2230" font-size="11" font-family="'Menlo','Consolas',monospace" text-anchor="middle">rank(prompt, candidates)</text>
+
+  <!-- 9. Ranker -> API (return) -->
+  <line x1="1110" y1="626" x2="310" y2="626" stroke="#1A2230" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#sqArrowReturn)"/>
+  <text x="410" y="616" fill="#1A2230" font-size="11" font-family="'Menlo','Consolas',monospace" text-anchor="middle">scores + in_domain_ratio</text>
+
+  <!-- 10. API -> Retrieval (inside loop frame) -->
+  <line x1="310" y1="726" x2="710" y2="726" stroke="#1A2230" stroke-width="1.5" marker-end="url(#sqArrowSync)"/>
+  <text x="410" y="716" fill="#1A2230" font-size="11" font-family="'Menlo','Consolas',monospace" text-anchor="middle">expand_K(+10)</text>
+
+  <!-- 11. API -> Client (final response) -->
+  <line x1="310" y1="780" x2="110" y2="780" stroke="#1A2230" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#sqArrowReturn)"/>
+  <text x="210" y="770" fill="#1A2230" font-size="11" font-family="'Menlo','Consolas',monospace" text-anchor="middle">top-K + rationale</text>
+
+  <!-- ============ Legend ============ -->
+  <g transform="translate(40, 850)">
+    <rect x="0" y="0" width="1200" height="38" fill="#F7F9FC" stroke="#D6DCE5" stroke-width="1" rx="4"/>
+
+    <line x1="16" y1="20" x2="46" y2="20" stroke="#1A2230" stroke-width="1.5" marker-end="url(#sqArrowSync)"/>
+    <text x="54" y="24" fill="#1A2230" font-size="12">synchronous call</text>
+
+    <line x1="172" y1="20" x2="202" y2="20" stroke="#1A2230" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#sqArrowReturn)"/>
+    <text x="210" y="24" fill="#1A2230" font-size="12">return</text>
+
+    <line x1="290" y1="20" x2="320" y2="20" stroke="#1E4FA8" stroke-width="1.5" marker-end="url(#sqArrowBlue)"/>
+    <text x="328" y="24" fill="#1A2230" font-size="12">retrieval path</text>
+
+    <rect x="432" y="12" width="16" height="16" fill="#E8EFF8" stroke="#1E4FA8" stroke-width="1" rx="1"/>
+    <text x="456" y="24" fill="#1A2230" font-size="12">activation</text>
+
+    <line x1="544" y1="20" x2="574" y2="20" stroke="#1E4FA8" stroke-width="1" stroke-dasharray="6 4"/>
+    <rect x="544" y="13" width="15" height="15" fill="#1E4FA8"/>
+    <text x="586" y="24" fill="#1A2230" font-size="12">alt frame</text>
+
+    <text x="1184" y="24" fill="#8B97A8" font-size="12" text-anchor="end">LightCSR - Sequence - v1</text>
+  </g>
+</svg>
