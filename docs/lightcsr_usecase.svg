@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="880" viewBox="0 0 1280 880" font-family="'Inter','Helvetica Neue','Segoe UI',Arial,sans-serif">
+  <defs>
+    <marker id="ucArrowFlow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M 1 1 L 10 6 L 1 11" fill="none" stroke="#1A2230" stroke-width="1.5"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="880" fill="#FFFFFF"/>
+
+  <!-- Title band -->
+  <rect x="0" y="0" width="1280" height="56" fill="#0E3F8C"/>
+  <text x="40" y="26" fill="#FFFFFF" font-size="20" font-weight="bold">LightCSR - Use Case Diagram</text>
+  <text x="40" y="46" fill="#9FC3F0" font-size="13">System boundary: Online Service x Offline Pipeline | 7 use cases | 2 actors</text>
+
+  <!-- ============ System boundary ============ -->
+  <rect x="180" y="110" width="920" height="670" fill="none" stroke="#1E4FA8" stroke-width="1.5" rx="8"/>
+  <rect x="180" y="96" width="134" height="28" fill="#FFFFFF"/>
+  <text x="194" y="118" fill="#1E4FA8" font-size="16" font-weight="bold">LightCSR</text>
+
+  <!-- Zone divider -->
+  <line x1="655" y1="188" x2="655" y2="770" stroke="#8B97A8" stroke-width="1" stroke-dasharray="6 5"/>
+
+  <!-- Zone headers -->
+  <text x="430" y="176" fill="#0E3F8C" font-size="14" font-weight="bold" text-anchor="middle">Online Service</text>
+  <text x="880" y="176" fill="#0E3F8C" font-size="14" font-weight="bold" text-anchor="middle">Offline Pipeline</text>
+
+  <!-- ============ Online use cases ============ -->
+  <rect x="240" y="200" width="380" height="56" fill="#FFFFFF" stroke="#1E4FA8" stroke-width="2.5" rx="28"/>
+  <text x="430" y="234" fill="#1A2230" font-size="12" font-weight="bold" text-anchor="middle">Submit Recommendation Request</text>
+
+  <rect x="240" y="340" width="380" height="56" fill="#FFFFFF" stroke="#1E4FA8" stroke-width="1.5" rx="28"/>
+  <text x="430" y="374" fill="#1A2230" font-size="12" text-anchor="middle">Retrieve Candidate Evidence</text>
+
+  <rect x="240" y="480" width="380" height="56" fill="#FFFFFF" stroke="#1E4FA8" stroke-width="1.5" rx="28"/>
+  <text x="430" y="514" fill="#1A2230" font-size="12" text-anchor="middle">Rank Candidates with SLM</text>
+
+  <rect x="240" y="620" width="380" height="56" fill="#FFFFFF" stroke="#1E4FA8" stroke-width="2.5" rx="28"/>
+  <text x="430" y="654" fill="#1A2230" font-size="11.5" font-weight="bold" text-anchor="middle">View Top-K Recommendations with Rationale</text>
+
+  <!-- ============ Online business sequence flow ============ -->
+  <g stroke="#1A2230" stroke-width="1.3" fill="none">
+    <line x1="430" y1="256" x2="430" y2="340" marker-end="url(#ucArrowFlow)"/>
+    <line x1="430" y1="396" x2="430" y2="480" marker-end="url(#ucArrowFlow)"/>
+    <line x1="430" y1="536" x2="430" y2="620" marker-end="url(#ucArrowFlow)"/>
+  </g>
+
+  <!-- ============ Offline use cases ============ -->
+  <rect x="690" y="340" width="380" height="56" fill="#FFFFFF" stroke="#1E4FA8" stroke-width="1.5" rx="28"/>
+  <text x="880" y="374" fill="#1A2230" font-size="12" text-anchor="middle">Build Item Profile and Knowledge Graph</text>
+
+  <rect x="690" y="480" width="380" height="56" fill="#FFFFFF" stroke="#1E4FA8" stroke-width="1.5" rx="28"/>
+  <text x="880" y="514" fill="#1A2230" font-size="12" text-anchor="middle">Build Dual-Layer Retrieval Index</text>
+
+  <rect x="690" y="620" width="380" height="56" fill="#FFFFFF" stroke="#1E4FA8" stroke-width="1.5" rx="28"/>
+  <text x="880" y="654" fill="#1A2230" font-size="12" text-anchor="middle">Run Quality-Cost Evaluation</text>
+
+  <!-- ============ Offline business sequence flow ============ -->
+  <g stroke="#1A2230" stroke-width="1.3" fill="none">
+    <line x1="880" y1="396" x2="880" y2="480" marker-end="url(#ucArrowFlow)"/>
+    <line x1="880" y1="536" x2="880" y2="620" marker-end="url(#ucArrowFlow)"/>
+  </g>
+
+  <!-- ============ Actor: End User (left, outside boundary) ============ -->
+  <g stroke="#1A2230" stroke-width="1.6" fill="#FFFFFF">
+    <circle cx="90" cy="300" r="14"/>
+    <line x1="90" y1="314" x2="90" y2="360" fill="none"/>
+    <line x1="72" y1="330" x2="108" y2="330" fill="none"/>
+    <line x1="90" y1="360" x2="74" y2="392" fill="none"/>
+    <line x1="90" y1="360" x2="106" y2="392" fill="none"/>
+  </g>
+  <text x="90" y="414" fill="#1A2230" font-size="14" font-weight="bold" text-anchor="middle">End User</text>
+
+  <!-- ============ Actor: Developer / Researcher (right, outside boundary) ============ -->
+  <g stroke="#1A2230" stroke-width="1.6" fill="#FFFFFF">
+    <circle cx="1180" cy="350" r="14"/>
+    <line x1="1180" y1="364" x2="1180" y2="410" fill="none"/>
+    <line x1="1162" y1="380" x2="1198" y2="380" fill="none"/>
+    <line x1="1180" y1="410" x2="1164" y2="442" fill="none"/>
+    <line x1="1180" y1="410" x2="1196" y2="442" fill="none"/>
+  </g>
+  <text x="1180" y="462" fill="#1A2230" font-size="12.5" font-weight="bold" text-anchor="middle">Developer / Researcher</text>
+
+  <!-- ============ Associations: End User -> online use cases ============ -->
+  <g stroke="#1A2230" stroke-width="1" fill="none">
+    <line x1="108" y1="330" x2="240" y2="228"/>
+    <line x1="108" y1="330" x2="240" y2="368"/>
+    <line x1="108" y1="330" x2="240" y2="508"/>
+    <line x1="108" y1="330" x2="240" y2="648"/>
+  </g>
+
+  <!-- ============ Associations: Developer / Researcher -> offline use cases ============ -->
+  <g stroke="#1A2230" stroke-width="1" fill="none">
+    <line x1="1162" y1="380" x2="1070" y2="368"/>
+    <line x1="1162" y1="380" x2="1070" y2="508"/>
+    <line x1="1162" y1="380" x2="1070" y2="648"/>
+  </g>
+
+  <!-- ============ Legend ============ -->
+  <g transform="translate(40, 800)">
+    <rect x="0" y="0" width="1200" height="44" fill="#F7F9FC" stroke="#D6DCE5" stroke-width="1" rx="4"/>
+
+    <line x1="16" y1="22" x2="46" y2="22" stroke="#1A2230" stroke-width="1"/>
+    <text x="54" y="26" fill="#1A2230" font-size="12">association</text>
+
+    <line x1="158" y1="22" x2="188" y2="22" stroke="#1A2230" stroke-width="1.3" marker-end="url(#ucArrowFlow)"/>
+    <text x="198" y="26" fill="#1A2230" font-size="12">sequence flow</text>
+
+    <rect x="330" y="14" width="16" height="16" fill="#FFFFFF" stroke="#1E4FA8" stroke-width="2.5" rx="8"/>
+    <text x="354" y="26" fill="#1A2230" font-size="12">primary use case</text>
+
+    <rect x="486" y="14" width="16" height="16" fill="#FFFFFF" stroke="#1E4FA8" stroke-width="1.5" rx="8"/>
+    <text x="510" y="26" fill="#1A2230" font-size="12">use case</text>
+
+    <circle cx="630" cy="16" r="6" fill="#FFFFFF" stroke="#1A2230" stroke-width="1.5"/>
+    <line x1="630" y1="22" x2="630" y2="34" stroke="#1A2230" stroke-width="1.5"/>
+    <text x="644" y="26" fill="#1A2230" font-size="12">actor</text>
+
+    <line x1="718" y1="6" x2="718" y2="38" stroke="#8B97A8" stroke-width="1" stroke-dasharray="6 5"/>
+    <text x="730" y="26" fill="#1A2230" font-size="12">zone divider</text>
+
+    <text x="1184" y="26" fill="#8B97A8" font-size="12" text-anchor="end">LightCSR - Use Case - v3</text>
+  </g>
+</svg>
